@@ -23,7 +23,7 @@ bot.command('start', async (ctx) => {
     'Привет! Я - InterviewDevTestBot \nПредлагаю проверить свои знания по тестированию и разработке',
     );
 
-    await ctx.reply('Выбери тему вопроса в меню 👇', {
+    await ctx.reply('Выбери тему вопроса в меню', {
     reply_markup: startKeyboard,
     });
     });
@@ -81,7 +81,7 @@ bot.command('start', async (ctx) => {
                 return;
                 }
                 if (callbackData.isCorrect) {
-                    await ctx.reply('Верно ✅');
+                    await ctx.reply('Верно');
                     await ctx.answerCallbackQuery();
                     return;
                     }
@@ -89,7 +89,7 @@ bot.command('start', async (ctx) => {
                         callbackData.type.split('-')[0],
                         callbackData.questionId,
                       );
-                      await ctx.reply(`Неверно ❌ Правильный ответ: ${answer}`);
+                      await ctx.reply(`Неверно! Правильный ответ: ${answer}`);
                       await ctx.answerCallbackQuery();       
                 
                 });
